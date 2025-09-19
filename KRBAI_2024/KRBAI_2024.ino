@@ -6,7 +6,7 @@
  *   for underwater Remotely Operated Vehicle (ROV).
  *
  * Author    : Muh Firizki
- * Email     : firizkimuh@gmail.com
+ * Email     : muhfirizki_2226270024@mhs.mdp.ac.id
  * GitHub    : https://github.com/firizki17
  *
  * Last Update : 21 Juni 2024
@@ -468,3 +468,4 @@ void loop() {
 //  }
 //
 //}
+
