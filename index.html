@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CONTROLLER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/boostrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-fluid">
+    <h1 class="text-center bg-primary">CONTROLLER</h1>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#config">Configuration</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#about">About</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div id="home" class="container tab-pane active"><br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-center text-white">Front Camera</div>
+                        <div class="card-body">
+                            <img class="img-fluid" src="/cam_front">
+                        </div>
+                        <div class="card-footer">Kamera depan ROV</div>
+                    </div>
+                </div>
+                <!--<div class="col-sm-4">-->
+                <!--<div class="card">-->
+                <!--<div class="card-header bg-primary text-center text-white">Depth Camera</div>-->
+                <!--<div class="card-body">-->
+                <!--<img class="img-fluid" src="/cam_depth">-->
+                <!--</div>-->
+                <!--<div class="card-footer">Depth kamera depan ROV</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-center text-white">Bottom Camera</div>
+                        <div class="card-body">
+                            <img class="img-fluid" src="/cam_bottom">
+                        </div>
+                        <div class="card-footer">Kamera bawah ROV</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12" style="padding-top: 0.25em!important;">
+                    <div class="card">
+                        <div class="card-header bg-black text-center text-white">Tool</div>
+                        <div class="card-body">
+                            <div class="row">
+<!--                                <div class="col-sm-4">-->
+<!--                                    <button id="btnDetection" type="button" class="btn btn-outline-primary">Detection-->
+<!--                                    </button>-->
+<!--                                    &lt;!&ndash;<button type="button" class="btn btn-outline-primary">Btn2</button>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;<button type="button" class="btn btn-outline-primary">Btn3</button>&ndash;&gt;-->
+<!--                                </div>-->
+
+                                <div class="col-sm-1">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="sw_cam_simulation"
+                                               name="cam_simulation"
+                                               value="yes">
+                                        <label class="form-check-label" for="sw_cam_simulation">Demo</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-1">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="sw_canny" name="canny"
+                                               value="yes">
+                                        <label class="form-check-label" for="sw_canny">Canny</label>
+                                    </div>
+                                </div>
+
+                                <!--<div class="col-sm-1">-->
+                                <!--<div class="form-check form-switch">-->
+                                <!--<input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode"-->
+                                <!--value="yes">-->
+                                <!--<label class="form-check-label" for="mySwitch">Dark Mode</label>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            </div>
+
+                        </div>
+                        <div class="card-footer">Action panel</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12" style="padding-top: 0.25em!important;">
+                    <div class="card">
+                        <div class="card-header bg-black text-center text-white">Terminal</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                        <input id="txtSerial" type="text" class="form-control"
+                                               placeholder="Sample command : X,0,0,0,L">
+                                        <button id="btnSerialSend" class="btn btn-success" type="button">Send</button>
+                                        <button id="btnSerialRXClear" class="btn btn-warning" type="button">Clear
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                                <!--<div class="col-sm-1">-->
+                                <!--<div class="form-check form-switch">-->
+                                <!--<input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode"-->
+                                <!--value="yes">-->
+                                <!--<label class="form-check-label" for="mySwitch">Dark Mode</label>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <label id="lblLinesSerialRX" for="txtAreaSerialRX" class="form-label">Lines
+                                                :
+                                                0</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="input-group">
+                                        <textarea class="form-control" rows="20" id="txtAreaSerialRX"
+                                                  name="text" readonly></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer">Use this to command ROV</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="config" class="container tab-pane fade"><br>
+            <h3>Configuration</h3>
+            <p>Configuration page here</p>
+        </div>
+        <div id="about" class="container tab-pane fade"><br>
+            <h3>ROV Controller</h3>
+            <p>
+                Kontroler ROV dengan Bootstrap5 dan Python
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="assets/jquery/jquery.min.js"></script>
+<script src="assets/webscoket/ws.min.js"></script>
+<script src="assets/sweet_alert/js/sweetalert2.all.min.js"></script>
+<script src="assets/boostrap/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    var server_host = window.location.host;
+
+    // sweet alert toast object
+    var toastMixin = Swal.mixin({
+        toast: true,
+        icon: 'success',
+        title: 'General Title',
+        animation: false,
+        position: 'top-right',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
+    // sse connection
+    if (window.EventSource) {
+        var eventSource = new EventSource("/sse");
+
+        // global event sse
+        eventSource.addEventListener("message", event => {
+            // console.log(event);
+        });
+
+        // only to serial event name
+        eventSource.addEventListener("serial", event => {
+            // console.log(event);
+        });
+    } else {
+        // Sorry! No server-sent events support..
+    }
+
+    // websocket connection
+    if (window.WebSocket) {
+        const ws = new ReconnectingWebSocket('ws://' + server_host + '/ws');
+        if (ws) {
+            ws.onopen = () => {
+                // console.log('WebSocket connection opened');
+                // ws.send('Hello, WebSocket!');
+                toastMixin.fire({
+                    title: "Websocket ready",
+                    position: "center"
+                });
+            };
+
+            ws.onmessage = (event) => {
+                // console.log('Message from server:', event.data);
+                // toastMixin.fire({
+                //     title: "Websocket Data",
+                //     text: event.data,
+                //     position: "center"
+                // });
+
+                try {
+                    var ws_data = event.data;
+                    var js_ws_data = JSON.parse(ws_data);
+
+                    // console.log(js_ws_data);
+
+                    if (js_ws_data.cmd == 99) {
+                        var txtarea = $("#txtAreaSerialRX");
+                        var txt_rx = txtarea.val();
+                        var lines_count = txt_rx.split("\n").length;
+                        var char_count = txt_rx.length;
+                        var new_line_character = js_ws_data.data.slice(-1) == '\n' ? '' : '\n';
+                        // console.log(lines_count);
+
+                        if ((lines_count > 1000) || (char_count > 5000)) {
+                            txtarea.empty();
+                        }
+                        // txtarea.prepend(js_ws_data.timestamp + " : " + js_ws_data.data + new_line_character);
+                        txtarea.prepend(js_ws_data.data);
+
+                        $('#lblLinesSerialRX').html("Data : " + txtarea.val().length + " char -- Lines : " + txtarea.val().split("\n").length);
+                    }
+                } catch (e) {
+
+                }
+
+            };
+
+            ws.onclose = () => {
+                // console.log('WebSocket connection closed');
+                toastMixin.fire({
+                    title: "Websocket closed",
+                    position: "center",
+                    icon: "error"
+                });
+            };
+        }
+    }
+
+
+    $(document).ready(
+        function () {
+            // console.log("READY JQ");
+            // Swal.fire("Ready to action");
+            toastMixin.fire({
+                title: '<h3>System ready</h3>',
+                position: "center"
+            });
+
+            $("#sw_canny").click(
+                function (event) {
+                    // console.log($(this).prop("checked"));
+                    $.post(
+                        "/api",
+                        {
+                            "cmd": 1
+                        },
+                        function (data) {
+                            // console.log(data);
+                            let jsx = JSON.parse(data);
+                            toastMixin.fire({
+                                title: 'Canny changed ' + (jsx.error == 0 ? 'successfully' : 'failed'),
+                                icon: (jsx.error == 0 ? 'success' : 'error'),
+                                position: "bottom"
+                            });
+                        }
+                    );
+                }
+            );
+
+            $("#sw_cam_simulation").click(
+                function (event) {
+                    // console.log($(this).prop("checked"));
+                    $.post(
+                        "/api",
+                        {
+                            "cmd": 2,
+                            "data": Number(!$(this).prop("checked"))
+                        },
+                        function (data) {
+                            // console.log(data);
+                            let jsx = JSON.parse(data);
+                            toastMixin.fire({
+                                title: 'Cam mode changed ' + (jsx.error == 0 ? 'successfully' : 'failed'),
+                                icon: (jsx.error == 0 ? 'success' : 'error'),
+                                position: "bottom"
+                            });
+                        }
+                    );
+                }
+            );
+
+            $("#btnDetection").click(function () {
+                var json_data = JSON.stringify({
+                    "cmd": 1
+                });
+                ws.send(json_data);
+            });
+
+            $("#btnSerialSend").click(function () {
+                var txt_serial = $("#txtSerial").val();
+                if ($.trim(txt_serial).length > 0) {
+                    var json_data = JSON.stringify({
+                        "cmd": 2,
+                        "data": txt_serial
+                    });
+                    if (ws) {
+                        ws.send(json_data);
+                    } else {
+                        toastMixin.fire({
+                            title: 'Websocket disconnected!',
+                            icon: 'error',
+                            position: "center"
+                        });
+                    }
+                } else {
+                    toastMixin.fire({
+                        title: 'Text empty!',
+                        icon: 'error',
+                        position: "center"
+                    });
+                }
+            });
+
+            $("#btnSerialRXClear").click(function () {
+                $("#txtAreaSerialRX").empty();
+            });
+        }
+    );
+
+</script>
+</body>
+</html>
